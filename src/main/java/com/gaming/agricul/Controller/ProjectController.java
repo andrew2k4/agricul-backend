@@ -102,6 +102,9 @@ public class ProjectController {
     }
 
     private String extractUid(Authentication authentication) {
-        return ((FirebaseToken) authentication.getPrincipal()).getUid();
+        if (authentication != null && authentication.getPrincipal() instanceof FirebaseToken token) {
+            return token.getUid();
+        }
+        return "dev-user";
     }
 }

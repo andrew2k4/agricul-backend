@@ -13,8 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ProjectResources {
 
-    private double budget;
-    private double landSize;
-    private boolean existingStructures;
+    private Double budget;
+    private Double landSize;
+    private Boolean existingStructures;
     private String notes;
 }

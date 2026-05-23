@@ -23,7 +23,7 @@ public class ProjectMapper {
         ProjectResourcesDto resources = null;
         if (project.getResources() != null) {
             ProjectResources r = project.getResources();
-            resources = new ProjectResourcesDto(r.getBudget(), r.getLandSize(), r.isExistingStructures(), r.getNotes());
+            resources = new ProjectResourcesDto(r.getBudget(), r.getLandSize(), r.getExistingStructures(), r.getNotes());
         }
 
         ProjectCapitalDto capital = null;
@@ -57,6 +57,14 @@ public class ProjectMapper {
         project.setName(request.name());
         project.setProjectType(request.projectType());
         project.setLivestockType(request.livestockType());
+        if (request.budget() != null || request.landSize() != null) {
+            project.setResources(new ProjectResources(
+                    request.budget(),
+                    request.landSize(),
+                    request.existingStructures() != null ? request.existingStructures() : false,
+                    request.notes()
+            ));
+        }
         return project;
     }
 

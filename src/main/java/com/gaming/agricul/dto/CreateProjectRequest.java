@@ -14,5 +14,17 @@ public record CreateProjectRequest(
         ProjectType projectType,
 
         @Schema(description = "Livestock type — required when projectType is LIVESTOCK", example = "CHICKEN")
-        LivestockType livestockType
+        LivestockType livestockType,
+
+        @Schema(description = "Budget in FCFA", example = "5000000")
+        Double budget,
+
+        @Schema(description = "Land size in m²", example = "1000")
+        Double landSize,
+
+        @Schema(description = "Whether existing structures are present", example = "false")
+        Boolean existingStructures,
+
+        @Schema(description = "Additional notes", example = "Terrain proche de Douala")
+        String notes
 ) {}
